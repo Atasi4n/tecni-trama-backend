@@ -58,6 +58,11 @@ app.use(session({
 }));
 app.use(flash());
 
+app.get('/', (req, res) => {
+  res.send('Backend de TecniTrama funcionando 🚀');
+});
+
+
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
