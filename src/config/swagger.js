@@ -13,12 +13,8 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Development server',
-      },
-      {
-        url: '/',
-        description: 'Render deployment server',
+        url: process.env.BASE_URL || 'http://localhost:3000',
+        description: 'Dynamic server',
       },
     ],
     components: {
