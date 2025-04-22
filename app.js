@@ -29,10 +29,14 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // Mount other routers here
+app.use(cors({
+  origin: '*', // Para pruebas
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH','OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
 
 // Session setup
 app.use(session({
