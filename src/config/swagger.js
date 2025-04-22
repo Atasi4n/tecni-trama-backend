@@ -16,6 +16,10 @@ const swaggerOptions = {
         url: 'http://localhost:3000',
         description: 'Development server',
       },
+      {
+        url: '/',
+        description: 'Render deployment server',
+      },
     ],
     components: {
       securitySchemes: {
