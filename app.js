@@ -21,19 +21,33 @@ const classesRouter = require("./src/routes/classes");
 const rolesRouter = require('./src/routes/roles');
 const departmentRouter = require("./src/routes/departments");
 const notificationsRouter = require("./src/routes/notifications");
+
 // Initialize Express app
 const app = express();
+
+
+app.options('*', cors());
 
 // Middleware setup
 app.use(logger('dev'));
 app.use(express.json());
 
-// Mount other routers here
+
+// CORS setup
 app.use(cors({
-  origin: '*', // Para pruebas
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH','OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
+  origin: [
+    'http://localhost:3000', // Para desarrollo local
+    'https://tu-frontend-en-render.com', // Reemplaza con tu URL de frontend
+    'https://tecni-trama-backend.onrender.com' // Para Swagger
+  ], // Para pruebas
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 }));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Habilitar preflight para todas las rutas
+
+// Parse URL-encoded bodies and JSON
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
