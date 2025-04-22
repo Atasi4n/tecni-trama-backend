@@ -44,8 +44,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Habilitar preflight para todas las rutas
 
 // Parse URL-encoded bodies and JSON
 app.use(express.urlencoded({ extended: false }));
