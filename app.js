@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(cors({
   origin: '*', // Para pruebas
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH','OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
