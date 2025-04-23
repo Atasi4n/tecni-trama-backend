@@ -13,7 +13,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.BASE_URL || 'http://localhost:3000',
+        url: process.env.BASE_URL || 'https://tecnitrama-api.onrender.com',
         description: 'Dynamic server',
       },
     ],
