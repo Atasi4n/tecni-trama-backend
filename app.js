@@ -25,8 +25,12 @@ const notificationsRouter = require("./src/routes/notifications");
 // Initialize Express app
 const app = express();
 
-
-app.options('*', cors());
+const corsOptions = {
+  origin: '*', // Replace with your frontend URL
+  optionsSuccessStatus: 200,
+  methods: '*',
+  allowedHeaders: '*',
+};
 
 // Middleware setup
 app.use(logger('dev'));
@@ -34,13 +38,7 @@ app.use(express.json());
 
 
 // CORS setup
-app.use(cors({
-  origin: '*', // All origins are allowed
-  //vary: ['Origin'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+app.use(cors(corsOptions));
 
 // Parse URL-encoded bodies and JSON
 app.use(express.urlencoded({ extended: false }));
