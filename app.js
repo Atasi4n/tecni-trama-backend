@@ -35,11 +35,8 @@ app.use(express.json());
 
 // CORS setup
 app.use(cors({
-  origin: [
-    'http://localhost:3000', // Para desarrollo local
-    'https://tu-frontend-en-render.com', // Reemplaza con tu URL de frontend
-    'https://tecni-trama-backend.onrender.com' // Para Swagger
-  ], // Para pruebas
+  origin: '*', // All origins are allowed
+  //vary: ['Origin'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
